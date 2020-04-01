@@ -1,0 +1,32 @@
+
+```{r data generation, echo = FALSE, results = "hide"}
+library(igraph) 
+modules <- graph(edges = c(1,2,1,3, 2,4,2,10,3,5,4,6,4,8,5,8,6,3,7,5,7,9,9,4,9,10), directed= T)
+sortering <- paste(topo_sort(modules), collapse=" ")
+kortstepad <- shortest_paths(modules,1)
+pad <- paste(kortstepad$vpath[4], collapse=" ")
+```
+
+Beschouw de graaf in volgende tekening:
+
+```{r }
+plot(modules)
+```
+
+Answerlist
+----------
+* Bepaal de topologische sortering van de graaf
+* Bepaal het korste pad van de graaf naar knoop 4
+
+
+Solution
+========
+We moeten de correspondernde functies uitvoeren
+
+Meta-information
+================
+extype: cloze
+exsolution: `r pad` | `r sortering`
+extol: 0.01
+exclozetype: string|string
+exname: toposort

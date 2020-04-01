@@ -1,0 +1,44 @@
+
+```{r data generation, echo = FALSE, results = "hide"}
+# Laad de package om met grafen te werken in R
+library(igraph) 
+
+# We genereren een ongerichte graaf 
+g2 <- graph(edges = c("a","b", "a","c", "b","d", "c","d", "c","e", "e","d", "e","f", "d","f"))
+
+
+#Oplossingen bepalen
+edges <- E(g2)
+edges <- gsub('\\|',"-",paste(as_ids(edges), collapse = " "))
+edgesStr <- 
+vertices <- V(g2)
+adjacentiematrix <- g2[]
+derdeRij <- paste(adjacentiematrix[3,])
+deg <- max(degree(g2, mode="all"))
+```
+Question
+========
+Beschouw de volgende graaf
+
+```{r }
+plot(g2)
+```
+
+Answerlist
+----------
+* Bepaal de verzameling van bogen
+* Bepaal de verzameling van knopen
+* Bepaal de derde rij van de adjacentiematrix
+* Bepaal de graad van de graaf
+
+Solution
+========
+We moeten de correspondernde functies uitvoeren
+
+Meta-information
+================
+extype: cloze
+exsolution: `r edges` | `r as_ids(vertices)` | `r derdeRij` | `r deg`
+extol: 0.01
+exclozetype: string|string|string|num
+exname: grafen

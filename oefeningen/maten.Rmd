@@ -1,0 +1,70 @@
+```{r data generation, echo = FALSE, results = "hide"}
+library(knitr)
+library(kableExtra)
+## Bepalen van de parameters
+
+
+# Functie die N willekeurige getallen genereert die sommeert tot M
+rand_vect <- function(N, M, sd = 1, pos.only = TRUE) {
+  vec <- rnorm(N, M/N, sd)
+  if (abs(sum(vec)) < 0.01) vec <- vec + 1
+  vec <- round(vec / sum(vec) * M)
+  deviation <- M - sum(vec)
+  for (. in seq_len(abs(deviation))) {
+    vec[i] <- vec[i <- sample(N, 1)] + sign(deviation)
+  }
+  if (pos.only) while (any(vec < 0)) {
+    negs <- vec < 0
+    pos  <- vec > 0
+    vec[negs][i] <- vec[negs][i <- sample(sum(negs), 1)] + 1
+    vec[pos][i]  <- vec[pos ][i <- sample(sum(pos ), 1)] - 1
+  }
+  vec
+}
+
+# Bepaal de grootte van de frequentietabel
+aantal <- round(runif(1,5,15),0)
+# Bepaal de noemer van de kansen
+noemer <- round(runif(1,10,20),0)
+# Bepaalde de tellers van de kansen
+tellers <- rand_vect(aantal,noemer)
+# Bepaalde de waarden voor de toevalsveranderlijke
+X <- round(runif(aantal,-10,10),1)
+# Bepaalde kansen zelf
+kansen <- tellers/noemer
+# Steek de toevalsveranderlijke en de kanfunctie in een dataframe (om mooi te renderen naast elkaar)
+dataframe <- data.frame(X,kansen)
+
+## Oplossing bepalen
+mu <- sum(kansen*X)
+freq <- kansen*X
+deviaties<- freq - mu
+deviaties <- deviaties * deviaties
+var <- sum(deviaties)/aantal
+
+```
+
+Question
+========
+Beschouw volgende kansfunctie voor een toevalsveranderlijke $X$. De toevalsveranderlijke met zijn respectievelijke kansen wordt gegeven door
+
+`r kable(dataframe, format = "latex") %>%kable_styling(latex_options = c("hold_position"))`
+
+Answerlist
+----------
+* Geef de verwachtingswaarde $\mu_X$ .
+* Geef de variantie $\sigma^2$ 
+
+
+Solution
+========
+Het gemiddelde is `r mu`
+De variantie is `r var`
+
+Meta-information
+================
+extype: cloze
+exsolution: `r fmt(mu, 3)`|`fmt(var,3)`
+exclozetype: num|num
+extol: 0.01
+exname: Gemiddelde bepalen

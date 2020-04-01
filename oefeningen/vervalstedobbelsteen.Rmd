@@ -1,0 +1,25 @@
+```{r data generation, echo = FALSE, results = "hide"}
+## Bepalen van de paramters
+p <- round(abs(rnorm(1),2),2)
+n <- rnorm(1,mean = 5,sd = 3)
+n <- round(n,0)
+
+
+## Oplossing bepalen
+oplossing <- p^n
+```
+
+Question
+========
+Beschouw een vervalst muntstuk, waarbij de kans om kop te smijten gelijk is aan $p = `r p`$. Wat is de kans om $`r n`$ keer kop te krijgen als je je munstuk $n=`r n`$ keer opgooit. 
+
+Solution
+========
+De kans komt overeen met $p^n$. In dit geval dus `r oplossing`. 
+
+Meta-information
+================
+extype: num
+exsolution: `r fmt(oplossing, 3)`
+extol: 0.01
+exname: price elasticity of demand
