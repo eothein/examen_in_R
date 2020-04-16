@@ -5,6 +5,10 @@
 ## voor het examen
 # Indien je een random vraag wil uit een selectie, moet je die meegeven als vector als element in de lijst
 library(exams)
+
+## We zetten de seed op 0, om altijd dezelfde examens te genereren.
+set.seed(0)
+
 myexam <- list(
   "swisscapital.Rmd",
   c("vervalstedobbelsteen.Rmd","maten.Rmd"),
@@ -19,7 +23,7 @@ myexam <- list(
 ##
 ## De opgaves staan in de directory exercises
 ## De templates voor het examen staan in de directory templates
-exams2pdf(myexam, n = 1, name = c("pdf-examen", "pdf-oplossing"),
+examens <- exams2pdf(myexam, n = 1, name = c("pdf-examen", "pdf-oplossing"),
           encoding = "UTF-8",
           showpoints = "TRUE",
           dir = "output",

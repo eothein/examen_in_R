@@ -1,6 +1,6 @@
 ```{r data generation, echo = FALSE, results = "hide"}
 ## Bepalen van de paramters
-p <- round(abs(rnorm(1),2),2)
+p <- round(runif(1),2)
 n <- rnorm(1,mean = 5,sd = 3)
 n <- round(n,0)
 
