@@ -16,6 +16,9 @@ myexam <- list(
   "toposort.Rmd"
 )
 
+#Bepaal het aantal vragen dat elk examen heeft
+aantalVragen <- length(myexam)
+numberExams <- 2
 
 ## Genereer n examens in een outputdirectory
 ## - opgave heet pdf-examen_n (met n volnummer)
@@ -23,12 +26,27 @@ myexam <- list(
 ##
 ## De opgaves staan in de directory exercises
 ## De templates voor het examen staan in de directory templates
-examens <- exams2pdf(myexam, n = 1, name = c("pdf-examen", "pdf-oplossing"),
+examens <- exams2pdf(myexam, n = numberExams, name = c("pdf-examen", "pdf-oplossing"),
           encoding = "UTF-8",
           showpoints = "TRUE",
           dir = "output",
           edir = "oefeningen",
           inputs = "/Users/eothein/education/examentest/templates/hogent-examen.sty",
           template = c("templates/opgave.tex", "templates/oplossing.tex"),
-         )
+       )
+#Genereer een dataframe voor de antwoorden
+# vraagNamen <- sprintf("Vraag %s",seq(1:aantalVragen))
+# answers <- as.data.frame(matrix(0, ncol = aantalVragen, nrow = numberExams))
+# names(answers) <- vraagNamen
 
+
+
+## Itereer over alle examens
+# for(i in 1:length(examens)){
+#   ## Examen extraheren
+#   ex <- examens[[i]]
+#   for(j in 1:aantalVragen){
+#     vraag <- ex[[j]]
+#     answers[i][j] = paste(vraag$metainfo[[16]])
+#   }
+# }
