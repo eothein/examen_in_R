@@ -1,15 +1,12 @@
-\documentclass{article}
-
-\usepackage[utf8]{inputenc}
-
-\usepackage{xcolor}
+\documentclass{exam}
 
 %% packages
-\usepackage{a4wide,color,verbatim,Sweave,url,xargs,amsmath,hyperref}
+\usepackage{a4wide,color,verbatim,Sweave,url,xargs,amsmath,hyperref,booktabs,xcolor,tabulary}
+\usepackage[utf8]{inputenc}
+\usepackage[dutch]{babel}
 
 %% new environments
 \newenvironment{question}{\item}{}
-\newenvironment{solution}{\comment}{\endcomment}
 \newenvironment{answerlist}{\renewcommand{\labelenumi}{(\alph{enumi})}\begin{enumerate}}{\end{enumerate}}
 
 
@@ -17,8 +14,7 @@
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setkeys{Gin}{keepaspectratio}
 
-
-
+%% Generating the command for styling the questions
 \newcommand{\extext}[1]{\phantom{\large #1}}
 \newcommandx{\exmchoice}[9][2=-,3=-,4=-,5=-,6=-,7=-,8=-,9=-]{%
 	\mbox{(a) \,\, \framebox[8mm]{\rule[-1mm]{0mm}{5mm} \hspace*{-1.6mm} \extext{#1}} \hspace*{2mm}}%
@@ -58,6 +54,26 @@
 	\mbox{\framebox[0.9\textwidth][l]{\rule[-1mm]{0mm}{5mm} \hspace*{-1.6mm} \extext{#1}} \hspace*{2mm}}%
 }
 
+
+%%----------------------------------------------------------------------------
+%% Info over het examen, voor FBO
+%%----------------------------------------------------------------------------
+
+\newcommand{\academiejaar}{2019 - 2020}        % vb. 2012-2013
+\newcommand{\examenperiode}{$1^e$}              % vb. 1e, 2e
+\newcommand{\faculteit}{Bedrijf en Organisatie}
+\newcommand{\examendatum}{TODO}
+\newcommand{\examenuur}{TODO}
+
+\newcommand{\opleiding}{Toegepaste informatica, 2TI}
+\newcommand{\olod}{Onderzoekstechnieken}       % vb. Algoritmen
+\newcommand{\dolod}{Theorie}
+\newcommand{\reeks}{examen}                 % vb. Reeks 1, Reeks 2, Inhaalexamen
+\newcommand{\campus}{Aalst, ev. Schoonmeersen,}   % vb. Schoonmeerssen, Schoonmeersen
+\newcommand{\lectoren}{Jens Buysse}   
+
+
+
 %% new commands
 \makeatletter
 \newcommand{\ID}[1]{\def\@ID{#1}}
@@ -71,36 +87,65 @@
 \newcommand{\myDate}{\@Date}
 \makeatother
 
-%% headings
-\markboth{\textnormal{\bf \large Naam examen: \myID}}%
-{\textnormal{\bf \large Naam Examen: \myID}}
-\pagestyle{myheadings}
+
 
 \begin{document}
+	\begin{tabulary}{\textwidth}{|L|L|}
+		\hline
+		\multicolumn{2}{|p{\textwidth}|}{\textbf{Academiejaar \academiejaar{} -- \examenperiode{} examenperiode \hfill \reeks}} \\ 
+		\hline
+		Faculteit: \faculteit                            & Examendatum: \\
+		Opleiding, afstudeerrichting en jaar: \opleiding & \examendatum \\
+		Naam van het opleidingsonderdeel: \olod          &  \\
+		dOLOD/Deelexamen: \dolod                         & Aanvangsuur examen: \\
+		Campus: \campus                                  & \examenuur \\
+		Lesgever(s): \lectoren                           &  \\
+		\hline
+		\multicolumn{2}{|p{\textwidth}|}{\textbf{Voornaam en naam student:}} \\
+		\hline
+		\multicolumn{2}{|p{\textwidth}|}{Studentennummer:} \\
+		\hline
+		
+		Lector bij wie de student de onderwijsactiviteit volgde: & Lesgroep v/d onderwijsactiviteit: \\
+		& \\
+		\hline
+		\multicolumn{2}{|p{\textwidth}|}{\textbf{Behaald resultaat: \_\_\_\_\_ op \numpoints{}}} \\
+		\hline
+	\end{tabulary}
+
+	\begin{itemize}
+		\item Tijdens het oefeningenexamen mogen volgende hulpmiddelen gebruikt worden:
+		\begin{itemize}
+			\item Eigen laptop: R, Excel (of andere rekenbladsoftware), rekenmachine, internetverbinding;
+			\item Afgedrukte cursus, eigen uitgewerkte oefeningen en nota's
+		\end{itemize}
+		\item Wanneer de uitkomst een reëel getal is, rond dan af tot \textbf{drie cijfers na de komma}.
+	\end{itemize}
 	
-	%% title page
-	\thispagestyle{empty}
-	{\sf
-		\textbf{\LARGE{Hogeschool Gent}}
-		
-		\textbf{\large{Naam examen \myDate \hfill Examen ID \myID}}
-		
-		\vspace*{2cm}
-		
-		\begin{tabular}{p{14cm}}
-			\textbf{Name:} \hrule \\[1.5cm]
-			\textbf{Student ID:} \hrule \\[1.5cm]]
-		\end{tabular}
-		
-		\vspace*{1cm}
-		
-		%% \exinput{questionnaire}
-	}
+	Algemene richtlijnen:
+	
+	\begin{itemize}
+		\item Vul het bovenstaande kader in. Vul op elke bladzijde je naam en voornaam in.
+		\item Het laatste blad is leeg en kan dienen als kladpapier. Maak dit blad of de bundel zelf niet los!
+		\item Voor studenten met Individuele Onderwijs- en ExamenMaatregelen: schrijf IOEM op elke bladzijde.
+		\item Controleer of deze examenbundel alle pagina’s bevat, zo niet verwittig de docent of de toezichter zodat je een nieuw exemplaar krijgt.
+		\item Je mag geen enkele vorm van communicatie  -ook niet draadloos of online- gebruiken tijdens de examens (chatten, mailen, Messenger, \ldots). GSM’s en dergelijke moeten \textbf{uitgeschakeld} zijn (niet op stand-by, trillen, \ldots). GSM’s, smartphones, smartwatches enz. mogen tijdens de examens ook NIET gebruikt worden om de tijd te raadplegen. Het niet volgen van deze gedragscode wordt gesanctioneerd als ``onregelmatigheden bij een examen'' (artikel 53 van OER).
+	\end{itemize}
+	
+	Veel succes!
+
+	
+	\newpage
+	
+	\section{Antwoordenblad}
+	%% \exinput{questionnaire}
+	
 	\newpage
 	
 	\begin{enumerate}
-		
-		%% \exinput{exercises}
+	
+	\section{Vragen}
+	%% \exinput{exercises}
 		
 	\end{enumerate}
 	

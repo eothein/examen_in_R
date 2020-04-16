@@ -27,6 +27,7 @@ Meta-information
 ================
 extype: cloze
 exsolution: `r pad` | `r sortering`
+expoints: 1
 extol: 0.01
 exclozetype: string|string
 exname: toposort

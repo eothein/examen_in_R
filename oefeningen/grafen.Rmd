@@ -38,6 +38,7 @@ We moeten de correspondernde functies uitvoeren
 Meta-information
 ================
 extype: cloze
+expoints: 1
 exsolution: `r edges` | `r as_ids(vertices)` | `r derdeRij` | `r deg`
 extol: 0.01
 exclozetype: string|string|string|num

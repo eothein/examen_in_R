@@ -31,6 +31,7 @@ Answerlist
 Meta-information
 ================
 exname: Swiss Capital
+expoints: 1
 extype: schoice
 exsolution: 0100000
 exshuffle: 5

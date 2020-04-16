@@ -64,6 +64,7 @@ De variantie is `r var`
 Meta-information
 ================
 extype: cloze
+expoints: 1
 exsolution: `r fmt(mu, 3)`|`fmt(var,3)`
 exclozetype: num|num
 extol: 0.01

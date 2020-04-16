@@ -23,3 +23,4 @@ extype: num
 exsolution: `r fmt(oplossing, 3)`
 extol: 0.01
 exname: price elasticity of demand
+expoints: 1
